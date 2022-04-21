@@ -27,6 +27,10 @@ body {
 }
 
 .comments__item {
+  margin-bottom: 20px;
+}
+
+.comment__inner {
   background-color: #fff;
   border-radius: 10px;
   padding: 25px;
@@ -42,7 +46,7 @@ body {
 }
 
 @media (max-width: 563px) {
-  .comments__item {
+  .comment__inner {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 40px 1fr 40px;
@@ -51,7 +55,7 @@ body {
   }
 }
 
-.comments__author {
+.comment__author {
   color: #324152;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -61,18 +65,18 @@ body {
           align-items: center;
 }
 
-.comments__author img {
+.comment__author img {
   width: 40px;
   height: 40px;
 }
 
-.comments__author-name {
+.comment__author-name {
   font-size: 18px;
   margin-left: 10px;
   font-weight: 500;
 }
 
-.comments__period {
+.comment__period {
   font-size: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,20 +87,20 @@ body {
   color: #67727e;
 }
 
-.comments__body {
+.comment__body {
   grid-column: span 3;
   line-height: 1.5rem;
   font-size: 18px;
 }
 
-.comments__counter {
+.comment__counter {
   -ms-grid-row: 1;
   -ms-grid-row-span: 2;
   grid-row: 1 / span 2;
 }
 
 @media (max-width: 563px) {
-  .comments__counter {
+  .comment__counter {
     -ms-grid-row: 3;
     -ms-grid-row-span: 1;
     grid-row: 3 / 4;
@@ -106,7 +110,7 @@ body {
   }
 }
 
-.comments__actions {
+.comment__actions {
   font-size: 18px;
   font-weight: 500;
   display: -webkit-box;
@@ -122,7 +126,7 @@ body {
 }
 
 @media (max-width: 563px) {
-  .comments__actions {
+  .comment__actions {
     -ms-grid-row: 3;
     -ms-grid-row-span: 1;
     grid-row: 3 / 4;
@@ -132,20 +136,20 @@ body {
   }
 }
 
-.comments__delete {
+.comment__delete {
   color: #ed6468;
 }
 
-.comments__delete::before {
+.comment__delete::before {
   margin-right: 10px;
   font-size: 14px;
 }
 
-.comments__reply {
+.comment__reply {
   color: #5457b6;
 }
 
-.comments__reply::before {
+.comment__reply::before {
   margin-right: 10px;
   font-size: 14px;
 }
@@ -222,10 +226,10 @@ body {
   height: 100%;
 }
 
-.replies__item2 {
+.replies__item {
   margin-bottom: 20px;
 }
 
-.replies__item2:last-child {
+.replies__item:last-child {
   margin-bottom: 0;
 }
