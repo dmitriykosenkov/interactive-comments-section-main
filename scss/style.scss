@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:regular,500,700);
 
+@import "./_mixins";
+
 *,
 *::after,
 *::before {
@@ -14,16 +16,16 @@ body {
    height: 100%;
    font-family: $baseFont;
    color: hsl(211, 10%, 45%);
-   // color: hsl(212, 24%, 26%);
    background-color: hsl(228, 33%, 97%);
 }
 .wrapper {
    max-width: 840px;
    margin: 0 auto;
    min-height: 100vh;
+   padding: 50px 20px;
 }
 .comments {
-   padding: 50px 20px;
+   margin-bottom: 20px;
    &__items {
    }
    &__item {
@@ -39,10 +41,10 @@ body {
       grid-template-columns: auto auto repeat(2, 1fr);
       grid-template-rows: 40px auto;
       column-gap: 25px;
-      row-gap: 15px;
-      
-      @media (max-width:563px){
-         grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      @include adaptive-value("font-size", 18, 14, 0);
+      @media (max-width: 630px) {
+         grid-template-columns: repeat(2, 1fr);
          grid-template-rows: 40px 1fr 40px;
          gap: 10px;
       }
@@ -57,12 +59,19 @@ body {
       }
    }
    &__author-name {
-      font-size: 18px;
+      // font-size: 18px;
+      // @include adaptive-value("font-size", 18, 14, 0);
       margin-left: 10px;
       font-weight: 500;
+      span {
+         background-color: hsl(238, 40%, 52%);
+         color: #fff;
+         font-size: 16px;
+         padding: 0 5px 2px;
+         border-radius: 3px;
+      }
    }
    &__period {
-      font-size: 18px;
       display: flex;
       align-items: center;
       color: hsl(211, 10%, 45%);
@@ -70,40 +79,37 @@ body {
    &__body {
       grid-column: span 3;
       line-height: 1.5rem;
-      font-size: 18px;
    }
-   
+
    &__counter {
       grid-row: 1 / span 2;
-      @media (max-width:563px){
+      @media (max-width: 630px) {
          grid-row: 3 / 4;
          display: flex;
       }
    }
    &__actions {
-      font-size: 18px;
       font-weight: 500;
       display: flex;
       align-items: center;
       justify-content: end;
       gap: 25px;
-      @media (max-width:563px){
+      @media (max-width: 630px) {
          grid-row: 3 / 4;
          grid-column: 2 / 3;
+         gap: 10px;
       }
    }
    &__delete {
       color: hsl(358, 79%, 66%);
-      &::before{
+      &::before {
          margin-right: 10px;
-         font-size: 14px;
       }
    }
    &__reply {
       color: hsl(238, 40%, 52%);
-      &::before{
+      &::before {
          margin-right: 10px;
-         font-size: 14px;
       }
    }
 }
@@ -118,11 +124,11 @@ body {
       gap: 15px;
       border-radius: 15px;
       font-size: 12px;
-      @media (max-width:563px){
+      @media (max-width: 630px) {
          flex-direction: row;
       }
    }
-   
+
    &__sign {
       cursor: pointer;
       transition: all ease 0.3s;
@@ -137,16 +143,16 @@ body {
    }
 }
 
-
-
 .replies {
    &__template {
       margin-top: 20px;
       display: grid;
       grid-template-columns: 88px auto;
+      @media (max-width: 630px) {
+         grid-template-columns: 20px auto;
+      }
    }
    &__aside {
-      grid-column: 1 / 2;
       grid-row: span 2;
       position: relative;
       &::after {
@@ -158,12 +164,72 @@ body {
          transform: translate(-50%, 0);
          width: 2px;
          height: 100%;
+         @media (max-width: 630px) {
+            left: 0;
+            transform: translate(0, 0);
+         }
       }
    }
    &__item {
       margin-bottom: 20px;
       &:last-child {
          margin-bottom: 0;
+      }
+   }
+}
+
+.form {
+   &__block {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 25px;
+      min-height: 150px;
+      display: grid;
+      grid-template-columns: 50px auto 100px;
+      gap: 20px;
+      @media (max-width:630px){
+         grid-template-columns: repeat(2, 1fr);
+      }
+   }
+   &__image {
+      img {
+         width: 50px;
+         height: 50px;
+      }
+   }
+   &__text {
+      
+      textarea {
+         display: block;
+         width: 100%;
+         height: 100px;
+         resize: none;
+         border-radius: 10px;
+         padding: 10px 20px;
+         font-size: 16px;
+         border: 1px solid hsl(223, 19%, 93%);
+      }
+      @media (max-width:630px){
+         grid-column: 1 / 3;
+         grid-row: 1 / 2;
+      }
+   }
+   &__btn {
+      display: flex;
+      flex-direction: column;
+      button {
+         width: 100px;
+         background-color: hsl(238, 40%, 52%);
+         color: #fff;
+         border: none;
+         border-radius: 10px;
+         padding: 15px;
+         text-transform: uppercase;
+         font-weight: 700;
+         font-size: 17px;
+      }
+      @media (max-width:630px){
+         flex-direction: row-reverse;
       }
    }
 }
